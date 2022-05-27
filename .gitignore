@@ -1,0 +1,45 @@
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*__pycache__/
+.venv/
+.pyc
+**/__pycache__/
+server_uvicorn.log
+mysqldb
+
+
+# Environment files
+!.env.sample
+.env.*
+
+# Don't ignore lib inside src
+!src/lib/
+!tests/unit/lib
+
+# Log files
+logs/*.log
+logs/*.log.*
+
+# VS code
+.vscode/
+
+# pycharm
+.idea/
+
+# Mac files
+.DS_Store

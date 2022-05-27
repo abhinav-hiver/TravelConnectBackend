@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  # backend_service:
+  #   env_file:
+  #     - ./.env
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+  #   command: 
+  #   # - sh /usr/src/backend/start.sh
+  #   - /usr/src/backend/.venv/bin/uvicorn src:app --host 0.0.0.0 --port 80 --reload --log-level info > server_uvicorn.log
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - .:/usr/src/backend
+  #   restart: on-failure
+  db:
+    build:
+        context: .
+        dockerfile: ./db/Dockerfile
+    command : --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3356:3306
+    volumes:
+      - ./db/mysqldb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+          
