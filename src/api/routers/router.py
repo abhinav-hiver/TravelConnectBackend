@@ -8,21 +8,7 @@ from src.api.schema.request import TripPatchRequest, TripRequest, TripStatusRequ
 
 from src.api.schema.response import TripDataResponse, UserDataResponse
 from src.modules.api_manager import add_new_trip, add_new_user, get_all_trips, get_trip_by_id, get_trip_by_user_id, get_trip_status_by_id, get_user_by_id, update_trip_by_id, update_user_by_user_id
-# from src.api.schema.request import (
-#     AddProductRequest,
-#     SendOTPRequest,
-#     VerifyOTPRequest,
-#     UpdateUserRequest,
-# )
-# from src.modules.api_manager import (
-#     login_user,
-#     send_otp_to_user,
-#     verify_otp_and_return_user_and_token,
-#     update_user_details,
-#     add_new_product,
-#     delete_user_and_properties,
-#     get_store_products
-# )
+
 
 os.path.join(os.getcwd(), "src")
 
@@ -33,14 +19,6 @@ router = APIRouter()
 #       Backend APIS              #
 #######################################
 log = logging.getLogger("backend")
-
-
-
-# @router.post("/send_otp", response_model=APIStatusResponse)
-# def send_otp(request: SendOTPRequest):
-#     log.info(f"Send_otp API request : {jsonable_encoder(request)}")
-#     return send_otp_to_user(request)
-
 
 @router.post("/user/add")
 def add_user(request: UserRequest):

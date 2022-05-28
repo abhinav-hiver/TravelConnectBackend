@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field
 class UserRequest(BaseModel):
     name: str = Field(..., title="Name of the user")
     contact_no: str = Field(..., title="Contact Info of the user")
-    email_id: str = Field(None, title="Email ID of the user")
-    age: int = Field(None, title="Age of the user")
+    email_id: str = Field(..., title="Email ID of the user")
+    age: int = Field(..., title="Age of the user")
     interests: str = Field(None, title="Interests of the user")
     profile_photo: str = Field(None, title="Profile Pic of the user")
     places_visited: str = Field(None, title="Places Visited by the user")
@@ -27,13 +27,12 @@ class TripRequest(BaseModel):
     destination: str = Field(..., title="Destination")
     duration: int = Field(None, title="Duration")
     events: str = Field(None, title="Events")
-    status: str = Field(None, title="Status")
+    status: str = Field("open", title="Status")
     additional_info: str = Field(None, title="Additional Info")
     date_from: str = Field(None, title="Date From")
     date_to: str = Field(None, title="Date To")
 
 class TripPatchRequest(BaseModel):
-    hosted_by: Optional[int]
     destination: Optional[str]
     duration: Optional[int]
     events: Optional[str]
